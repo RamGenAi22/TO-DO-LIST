@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>📝 To Do List</h2>
+    <form method="post">
+        Task: <input type="text" name="task" required><br><br>
+        Status: <input type="text" name="status" required><br><br>
+        Created At: <input type="datetime-local" name="created_at" required><br><br>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>📋 Tasks</h2>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Created At</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+            <td>{{ task[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
